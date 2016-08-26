@@ -2,10 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license.
  * //
- * Microsoft Cognitive Services (formerly Project Oxford): https://www.microsoft.com/cognitive-services
+ * Project Oxford: http://ProjectOxford.ai
  * //
- * Microsoft Cognitive Services (formerly Project Oxford) GitHub:
- * https://github.com/Microsoft/Cognitive-Speech-STT-Android
+ * ProjectOxford SDK GitHub:
+ * https://github.com/Microsoft/ProjectOxford-ClientSDK
  * //
  * Copyright (c) Microsoft Corporation
  * All rights reserved.
@@ -30,7 +30,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package com.microsoft.AzureIntelligentServicesExample;
+package com.microsoft.CognitiveServicesExample;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -41,14 +41,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+
 import com.microsoft.bing.speech.SpeechClientStatus;
-import com.microsoft.projectoxford.speechrecognition.DataRecognitionClient;
-import com.microsoft.projectoxford.speechrecognition.ISpeechRecognitionServerEvents;
-import com.microsoft.projectoxford.speechrecognition.MicrophoneRecognitionClient;
-import com.microsoft.projectoxford.speechrecognition.RecognitionResult;
-import com.microsoft.projectoxford.speechrecognition.RecognitionStatus;
-import com.microsoft.projectoxford.speechrecognition.SpeechRecognitionMode;
-import com.microsoft.projectoxford.speechrecognition.SpeechRecognitionServiceFactory;
+import com.microsoft.cognitiveservices.speechrecognition.DataRecognitionClient;
+import com.microsoft.cognitiveservices.speechrecognition.ISpeechRecognitionServerEvents;
+import com.microsoft.cognitiveservices.speechrecognition.MicrophoneRecognitionClient;
+import com.microsoft.cognitiveservices.speechrecognition.RecognitionResult;
+import com.microsoft.cognitiveservices.speechrecognition.RecognitionStatus;
+import com.microsoft.cognitiveservices.speechrecognition.SpeechRecognitionMode;
+import com.microsoft.cognitiveservices.speechrecognition.SpeechRecognitionServiceFactory;
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
@@ -62,21 +63,14 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
     RadioGroup _radioGroup;
     Button _buttonSelectMode;
     Button _startButton;
-    
+
     public enum FinalResponseStatus { NotReceived, OK, Timeout }
-            
+
     /**
      * Gets the primary subscription key
      */
-    public String getPrimaryKey() { 
-        return this.getString(R.string.primaryKey); 
-    }
-
-    /**
-     * Gets the secondary subscription key
-     */
-    public String getSecondaryKey() {
-        return this.getString(R.string.secondaryKey);
+    public String getPrimaryKey() {
+        return this.getString(R.string.primaryKey);
     }
 
     /**
@@ -102,8 +96,8 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
     private Boolean getUseMicrophone() {
         int id = this._radioGroup.getCheckedRadioButtonId();
         return id == R.id.micIntentRadioButton ||
-               id == R.id.micDictationRadioButton ||
-               id == (R.id.micRadioButton - 1);
+                id == R.id.micDictationRadioButton ||
+                id == (R.id.micRadioButton - 1);
     }
 
     /**
@@ -113,7 +107,7 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
     private Boolean getWantIntent() {
         int id = this._radioGroup.getCheckedRadioButtonId();
         return id == R.id.dataShortIntentRadioButton ||
-               id == R.id.micIntentRadioButton;
+                id == R.id.micIntentRadioButton;
     }
 
     /**
@@ -123,7 +117,7 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
     private SpeechRecognitionMode getMode() {
         int id = this._radioGroup.getCheckedRadioButtonId();
         if (id == R.id.micDictationRadioButton ||
-            id == R.id.dataLongRadioButton) {
+                id == R.id.dataLongRadioButton) {
             return SpeechRecognitionMode.LongDictation;
         }
 
@@ -171,7 +165,7 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
                     .setCancelable(false)
                     .show();
         }
-        
+
         // setup the buttons
         final MainActivity This = this;
         this._startButton.setOnClickListener(new OnClickListener() {
@@ -227,14 +221,13 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
                     this.WriteLine("--- Start microphone dictation with Intent detection ----");
 
                     this.micClient =
-                        SpeechRecognitionServiceFactory.createMicrophoneClientWithIntent(
-                                this,
-                                this.getDefaultLocale(),
-                                this,
-                                this.getPrimaryKey(),
-                                this.getSecondaryKey(),
-                                this.getLuisAppId(),
-                                this.getLuisSubscriptionID());
+                            SpeechRecognitionServiceFactory.createMicrophoneClientWithIntent(
+                                    this,
+                                    this.getDefaultLocale(),
+                                    this,
+                                    this.getPrimaryKey(),
+                                    this.getLuisAppId(),
+                                    this.getLuisSubscriptionID());
                 }
                 else
                 {
@@ -243,8 +236,7 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
                             this.getMode(),
                             this.getDefaultLocale(),
                             this,
-                            this.getPrimaryKey(),
-                            this.getSecondaryKey());
+                            this.getPrimaryKey());
                 }
             }
 
@@ -255,14 +247,13 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
             if (null == this.dataClient) {
                 if (this.getWantIntent()) {
                     this.dataClient =
-                        SpeechRecognitionServiceFactory.createDataClientWithIntent(
-                                this,
-                                this.getDefaultLocale(),
-                                this,
-                                this.getPrimaryKey(),
-                                this.getSecondaryKey(),
-                                this.getLuisAppId(),
-                                this.getLuisSubscriptionID());
+                            SpeechRecognitionServiceFactory.createDataClientWithIntent(
+                                    this,
+                                    this.getDefaultLocale(),
+                                    this,
+                                    this.getPrimaryKey(),
+                                    this.getLuisAppId(),
+                                    this.getLuisSubscriptionID());
                 }
                 else {
                     this.dataClient = SpeechRecognitionServiceFactory.createDataClient(
@@ -270,8 +261,7 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
                             this.getMode(),
                             this.getDefaultLocale(),
                             this,
-                            this.getPrimaryKey(),
-                            this.getSecondaryKey());
+                            this.getPrimaryKey());
                 }
             }
 
@@ -309,9 +299,9 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
     }
 
     public void onFinalResponseReceived(final RecognitionResult response) {
-        boolean isFinalDicationMessage = this.getMode() == SpeechRecognitionMode.LongDictation && 
-                                                       (response.RecognitionStatus == RecognitionStatus.EndOfDictation ||
-                                                        response.RecognitionStatus == RecognitionStatus.DictationEndSilenceTimeout);
+        boolean isFinalDicationMessage = this.getMode() == SpeechRecognitionMode.LongDictation &&
+                (response.RecognitionStatus == RecognitionStatus.EndOfDictation ||
+                        response.RecognitionStatus == RecognitionStatus.DictationEndSilenceTimeout);
         if (null != this.micClient && this.getUseMicrophone() && ((this.getMode() == SpeechRecognitionMode.ShortPhrase) || isFinalDicationMessage)) {
             // we got the final result, so it we can end the mic reco.  No need to do this
             // for dataReco, since we already called endAudio() on it as soon as we were done
@@ -328,28 +318,28 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
             this.WriteLine("********* Final n-BEST Results *********");
             for (int i = 0; i < response.Results.length; i++) {
                 this.WriteLine("[" + i + "]" + " Confidence=" + response.Results[i].Confidence +
-                                  " Text=\"" + response.Results[i].DisplayText + "\"");
+                        " Text=\"" + response.Results[i].DisplayText + "\"");
             }
 
             this.WriteLine();
         }
-    } 
+    }
 
     /**
-    * Called when a final response is received and its intent is parsed 
-    */
+     * Called when a final response is received and its intent is parsed
+     */
     public void onIntentReceived(final String payload) {
         this.WriteLine("--- Intent received by onIntentReceived() ---");
         this.WriteLine(payload);
         this.WriteLine();
     }
-    
+
     public void onPartialResponseReceived(final String response) {
         this.WriteLine("--- Partial result received by onPartialResponseReceived() ---");
-        this.WriteLine(response);    
+        this.WriteLine(response);
         this.WriteLine();
     }
-    
+
     public void onError(final int errorCode, final String response) {
         this._startButton.setEnabled(true);
         this.WriteLine("--- Error received by onError() ---");
@@ -430,21 +420,21 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
      * @param dataClient
      * @param recoMode
      * @param filename
-     */    
+     */
     private class RecognitionTask extends AsyncTask<Void, Void, Void> {
         DataRecognitionClient dataClient;
         SpeechRecognitionMode recoMode;
         String filename;
-        
+
         RecognitionTask(DataRecognitionClient dataClient, SpeechRecognitionMode recoMode, String filename) {
             this.dataClient = dataClient;
             this.recoMode = recoMode;
             this.filename = filename;
         }
-        
+
         @Override
         protected Void doInBackground(Void... params) {
-            try {           
+            try {
                 // Note for wave files, we can just send data from the file right to the server.
                 // In the case you are not an audio file in wave format, and instead you have just
                 // raw data (for example audio coming over bluetooth), then before sending up any 
@@ -454,7 +444,7 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
                 InputStream fileStream = getAssets().open(filename);
                 int bytesRead = 0;
                 byte[] buffer = new byte[1024];
-                  
+
                 do {
                     // Get  Audio data to send into byte buffer.
                     bytesRead = fileStream.read(buffer);
@@ -468,10 +458,10 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
             }
-            finally {            
+            finally {
                 dataClient.endAudio();
             }
-            
+
             return null;
         }
     }

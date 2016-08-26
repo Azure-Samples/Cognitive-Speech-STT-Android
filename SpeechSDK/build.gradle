@@ -50,7 +50,7 @@ group = "com.microsoft.projectoxford"
 // Artifact name is the name of the technology
 archivesBaseName = "speechrecognition"
 // Update your version
-version = "0.6.0"
+version = "1.1.0"
 
 // Upload artifacts to maven central repository staging servers
 uploadArchives {
@@ -68,28 +68,28 @@ uploadArchives {
 
             pom.project {
                 // The readable name of the artifact
-                name 'Microsoft Project Oxford Speech Recognition Client Library'
+                name 'Microsoft Project Cognitive Services Speech Recognition Client Library'
                 packaging 'jar'
 
                 // optionally artifactId can be defined here
 
                 // Descriptions of the artifacts.
-                description 'This client library allows the use of Microsoft\'s state-of-the-art cloud-based algorithms to process spoken language. See https://github.com/Microsoft/ProjectOxford-ClientSDK/tree/master/Speech for more information.'
+                description 'This client library allows the use of Microsoft\'s state-of-the-art cloud-based algorithms to process spoken language. See https://github.com/Microsoft/Cognitive-Speech-STT-Android/tree/master/Speech for more information.'
 
                 // Project URL
-                url 'https://github.com/Microsoft/ProjectOxford-ClientSDK'
+                url 'https://github.com/Microsoft/Cognitive-Speech-STT-Android'
 
                 // Github information
                 scm {
-                    connection 'scm:git:https://github.com/Microsoft/ProjectOxford-ClientSDK'
-                    developerConnection 'scm:git:https://github.com/Microsoft/ProjectOxford-ClientSDK'
-                    url 'scm:git:https://github.com/Microsoft/ProjectOxford-ClientSDK'
+                    connection 'scm:git:https://github.com/Microsoft/Cognitive-Speech-STT-Android'
+                    developerConnection 'scm:git:https://github.com/Microsoft/Cognitive-Speech-STT-Android'
+                    url 'scm:git:https://github.com/Microsoft/Cognitive-Speech-STT-Android'
                 }
 
                 licenses {
                     license {
                         name 'MIT'
-                        url 'https://github.com/Microsoft/ProjectOxford-ClientSDK/blob/master/LICENSE.md'
+                        url 'https://github.com/Microsoft/Cognitive-Speech-STT-Android/blob/master/LICENSE.md'
                     }
                 }
 
