@@ -18,7 +18,7 @@ dependencies {
     // Use the following line to include client library from Maven Central Repository
     // Change the version number from the search.maven.org result
     //
-    compile 'com.microsoft.projectoxford:speechrecognition:0.6.0'
+    compile 'com.microsoft.projectoxford:speechrecognition:2.1.0'
 
     // Your other Dependencies...
 }
