@@ -6,6 +6,12 @@
     <string name="add_subscription_key_tip_title">Subscription Key is Needed</string>
     <string name="add_subscription_key_tip">Please put your subscription key to source file \"app/res/values/strings.xml\" to enable Face API calls.</string>
 
+    <!-- 
+    Enter an optional authentication Uri such as: 
+    https://westus.api.cognitive.microsoft.com/sts/v1.0/issuetoken
+    -->
+    <string name="authenticationUri"></string>
+    
     <string name="luisAppID">yourLuisAppID</string>
     <string name="luisSubscriptionID">yourLuisSubscriptionID</string>
 

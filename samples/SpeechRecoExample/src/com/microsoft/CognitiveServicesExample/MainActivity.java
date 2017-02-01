@@ -42,6 +42,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
+import com.microsoft.bing.speech.Conversation;
 import com.microsoft.bing.speech.SpeechClientStatus;
 import com.microsoft.cognitiveservices.speechrecognition.DataRecognitionClient;
 import com.microsoft.cognitiveservices.speechrecognition.ISpeechRecognitionServerEvents;
@@ -148,6 +149,14 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
         return "batman.wav";
     }
 
+    /**
+     * Gets the Cognitive Service Authentication Uri.
+     * @return The Cognitive Service Authentication Uri.  Empty if the global default is to be used.
+     */
+    private String getAuthenticationUri() {
+        return this.getString(R.string.authenticationUri);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -238,6 +247,8 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
                             this,
                             this.getPrimaryKey());
                 }
+
+                this.micClient.setAuthenticationUri(this.getAuthenticationUri());
             }
 
             this.micClient.startMicAndRecognition();
@@ -263,6 +274,8 @@ public class MainActivity extends Activity implements ISpeechRecognitionServerEv
                             this,
                             this.getPrimaryKey());
                 }
+
+                this.dataClient.setAuthenticationUri(this.getAuthenticationUri());
             }
 
             this.SendAudioHelper((this.getMode() == SpeechRecognitionMode.ShortPhrase) ? this.getShortWaveFile() : this.getLongWaveFile());
