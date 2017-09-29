@@ -54,11 +54,11 @@ This sample demonstrates the following features using a wav file or external mic
 
 1. First, you must obtain a Bing Speech API subscription key by [following the instructions on our website](<https://www.microsoft.com/cognitive-services/en-us/sign-up>).
 
-2. Start Android Studio and choose "Import project (Eclipse ADT, Gradle, etc.)" from the "Quick Start" options from Speech \> SpeechToText \> Android folder.
+2. Start Android Studio, choose "Import project (Eclipse ADT, Gradle, etc.)" from the "Quick Start" options and select Cognitive-Speech-STT-Android folder.
 
 3. A "Gradle Sync" dialog will pop-up, choose OK to continue downloading the latest tools.
 
-4. In Android Studio -\> "Project" panel -\> "Android" view, open file "SpeechRecoExample/res/values/strings.xml", and find the line "Please\_add\_the\_subscription\_key\_here;". Replace the "Please\_add\_the\_subscription\_key\_here" value with your subscription key string from the first step. If you cannot find the file "strings.xml", it is in folder "Samples\_SpeechRecoExample\_res\_values\_strings.xml".
+4. In Android Studio -\> "Project" panel -\> "Android" view, open file "SpeechRecoExample/res/values/strings.xml", and find the line "Please\_add\_the\_subscription\_key\_here;". Replace the "Please\_add\_the\_subscription\_key\_here" value with your subscription key string from the first step. If you cannot find the file "strings.xml", it is in folder "samples/SpeechRecoExample/res/values/strings.xml".
 
 5. In Android Studio, select menu "Build \> Make Project" to build the sample, and "Run" to launch this sample app.
 
@@ -68,7 +68,7 @@ In Android Studio, select menu "Run", and "Run app" to launch this sample app.
 
 1. In the application, press the button "Select Mode" to select what type of Speech would like to use.
 
-2. For modes where you would like both Speech recognition and Intent to work, you need to sign up [Language Understanding Intelligent Service (LUIS)](<https://www.microsoft.com/cognitive-services/en-us/sign-up>) and set the key values in luisAppID and luisSubscriptionID from "Samples\_SpeechRecoExample\_res\_values\_strings.xml".
+2. For modes where you would like both Speech recognition and Intent to work, you need to sign up [Language Understanding Intelligent Service (LUIS)](<https://www.microsoft.com/cognitive-services/en-us/sign-up>) and set the values for 'luisAppID' and 'luisSubscriptionID' elements in "samples/SpeechRecoExample/res/values/strings.xml".
 
 3. To Start recognition, press the Start button.
 
