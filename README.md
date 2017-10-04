@@ -49,19 +49,19 @@ This sample demonstrates the following features using a wav file or external mic
 ### Requirements
 
 * Android OS must be Android 4.1 or higher (API Level 16 or higher)
-* The speech client library contains native code. To use this sample in an emulator, make sure that your build variant matches the architecture (x86 or arm) of your emulator. However, due to the need of audio, using a physical device is recommended.
+* The speech client library contains native code. To use this sample in an emulator, make sure that your build variant matches the architecture (x86 or arm) of your emulator.
 
 ### Build the sample
 
-1. First, you must obtain a Speech API subscription key from by following the instructions on [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/).
+1. First, you must obtain a Speech API subscription key by following the instructions on [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/).
 
 2. Start Android Studio, choose `Import project (Eclipse ADT, Gradle, etc.)` from the `Quick Start` options and select Cognitive-Speech-STT-Android folder.
 
-3. A `Gradle Sync` dialog pops up, choose OK to continue downloading the latest tools.
+3. When a `Gradle Sync` dialog pops up, choose OK to continue downloading the latest tools.
 
-4. In Android Studio -\> `Project` panel -\> `Android` view, open file "SpeechRecoExample/res/values/strings.xml", and find the line "Please\_add\_the\_subscription\_key\_here;". Replace the "Please\_add\_the\_subscription\_key\_here" value with your subscription key string from the first step.
+4. In Android Studio -\> `Project` panel -\> `Android` view, open file "SpeechRecoExample/res/values/strings.xml", and find the line "Please\_add\_the\_subscription\_key\_here;". Replace the "Please\_add\_the\_subscription\_key\_here" value with your subscription key from the first step.
 
-5. If you want to use *Recognition with intent*, you also need to sign up [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/) and set the key values in `luisAppID` and `luisSubscriptionID` from "Samples\_SpeechRecoExample\_res\_values\_strings.xml".
+5. If you want to use *Recognition with intent*, you also need to sign up for [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/) and set the key values in `luisAppID` and `luisSubscriptionID` in Samples\_SpeechRecoExample\_res\_values\_strings.xml.
 
 6. In Android Studio, select menu `Build` \> `Make Project` to build the sample, and `Run` to launch this sample app.
 
@@ -77,7 +77,7 @@ In Android Studio, select menu `Run`, and `Run app` to launch this sample app.
 
 ## Contributing
 
-We welcome contributions. Feel free to file issues and pull requests on the repo and we'll address them as we can. Learn more about how you can help on our [Contribution Rules & Guidelines](</CONTRIBUTING.md>).
+We welcome contributions. Feel free to file issues and submit pull requests on the repo and we'll try to address them as soon as possible. Learn more about how you can help on our [Contribution Rules & Guidelines](</CONTRIBUTING.md>).
 
 You can reach out to us anytime with questions and suggestions using our communities below:
 
