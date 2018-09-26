@@ -2,7 +2,7 @@
 
 We released a new Speech SDK supporting the new Unified Speech Service. The new SDK comes with support for Windows, Android, Linux, Javascript and iOS.
 
-Please check out https://aka.ms/csspech for documentation, links to the download pages, and the sample repository.
+Please check out https://aka.ms/csspeech for documentation, links to the download pages, and the sample repository.
  
 # Microsoft Speech API: Android Speech-to-Text Client Library and Samples
 
