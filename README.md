@@ -1,3 +1,9 @@
+# New Cognitive Services Speech SDK
+
+We released a new Speech SDK supporting the new Unified Speech Service. The new SDK comes with support for Windows, Android, Linux, Javascript and iOS.
+
+Please check out https://aka.ms/csspech for documentation, links to the download pages, and the sample repository.
+ 
 # Microsoft Speech API: Android Speech-to-Text Client Library and Samples
 
 This repo contains the Android client library and samples for Speech-to-Text in Microsoft Speech API, an offering within [Microsoft Cognitive Services on Azure](https://azure.microsoft.com/en-us/services/cognitive-services/), formerly known as Project Oxford.
